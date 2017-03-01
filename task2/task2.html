@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset = "UTF-8">
+	<title>自定义网页右键菜单</title>
+	<style>
+		#myMenu{
+			height:100px;
+			width:600px;
+			display:block;
+			font-size:1.6em;
+			font-family:"Microsoft YaHei";
+			border:2px solid #cccccc;
+			border-radius:5px;
+			background-color:#EEEEEE;
+			margin-top:15px;
+		}
+		#clickmenu{
+			text-align:center;
+			line-height:100px;
+			display:block;
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="myMenu">
+		<p id="clickmenu">right click to see the menu</p>
+	</div>
+</body>
+<script type="text/javascript">
+	var myMenu = document.getElementById("myMenu");
+	myMenu.addEventListener("contextmenu",function(e){
+		e.preventDefault();
+		t = event.clientY + "px";
+		l = event.clientX + "px";
+		alert(t);
+	});
+	
+	/*document.addEventListener("click",function(){
+		myMenu.style.display = "none";
+		//myMenu.style.display = "block";
+	})*/
+</script>
+</html>
