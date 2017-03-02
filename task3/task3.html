@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset"UTF-8">
+	<title>正则表达式</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			font-family:"Microsoft YaHei",serif;
+			font-size:16px;
+		}
+		.main{
+			height:200px;
+			width:800px;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin:-200px 0 0 -400px;
+			border:2px solid #cccccc;
+			border-radius:10px;
+			background-color:#eeeeee;
+		}
+		.phoneNum,.string{
+			line-height:100px;
+			text-align:center;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="phoneNum">
+			<span>Please enter phone number：</span>
+			<input id="num" type="text" placeholder="Enter phone number">
+			<button onclick="checkNum()">Check</button>
+		</div>
+		<hr>
+		<div class="string">
+			<span>Please enter string characters：</span>
+			<input id="str" type="text" placeholder="Enter string characters">
+			<button onclick="checkStr()">Check</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var num = document.getElementById("num");
+	var str = document.getElementById("str");
+	
+	//校验手机号码
+	function checkNum(){
+		if(num.value == ""){
+			alert("Please enter phone number!");
+		}else if(num.value.match(/1[34578]\d{9}/)){
+			alert("True.");
+		}else{
+			alert("False.");
+		}
+	}
+	
+	//校验字符串是否有相邻重复单词
+	function checkStr(){
+		if(str.value == ""){
+			alert("Please enter words!");
+		}else if(str.value.match(/\b([a-zA-Z]+)\s+\1\b/)){
+			alert("True.");
+		}else{
+			alert("False.");
+		}
+	}
+</script>
+</html>
