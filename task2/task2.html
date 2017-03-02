@@ -4,42 +4,71 @@
 	<meta charset = "UTF-8">
 	<title>自定义网页右键菜单</title>
 	<style>
+		body{
+			margin:0;
+			padding:0;
+		}
 		#myMenu{
 			height:100px;
 			width:600px;
 			display:block;
+			position:absolute;
+			top:30%;
+			left:30%;
 			font-size:1.6em;
 			font-family:"Microsoft YaHei";
 			border:2px solid #cccccc;
 			border-radius:5px;
 			background-color:#EEEEEE;
-			margin-top:15px;
+			z-index:-1;
 		}
 		#clickmenu{
 			text-align:center;
 			line-height:100px;
-			display:block;
 			margin:0 auto;
 		}
+		#newMenu{
+			height:120px;
+			width:250px;
+			display:none;
+			border:2px solid #cccccc;
+			border-radius:5px;
+			background-color:white;
+			font-size:1.4em;
+			font-family:"Microsoft YaHei";
+			position:absolute;
+		}
+		#newMenu p{
+			text-align:center;
+			line-height:60px;
+			margin:0 auto;
+		}	
 	</style>
 </head>
 <body>
 	<div id="myMenu">
 		<p id="clickmenu">right click to see the menu</p>
 	</div>
+	<div id="newMenu">
+		<p>Menu Item 1</p>
+		<p>Menu Item 2</p>
+	</div>
 </body>
 <script type="text/javascript">
 	var myMenu = document.getElementById("myMenu");
+	var newMenu = document.getElementById("newMenu");
+	
+	//鼠标右击时，出现自定义菜单
 	myMenu.addEventListener("contextmenu",function(e){
 		e.preventDefault();
-		t = event.clientY + "px";
-		l = event.clientX + "px";
-		alert(t);
+		newMenu.style.display = "block";
+		newMenu.style.top = event.clientY + "px";
+		newMenu.style.left = event.clientX + "px";
 	});
-	
-	/*document.addEventListener("click",function(){
-		myMenu.style.display = "none";
-		//myMenu.style.display = "block";
-	})*/
+	console.log(newMenu.style.width);
+	//点击非自定义菜单区域时，隐藏自定义菜单
+	document.addEventListener("click",function(){
+		newMenu.style.display = "none";
+	});
 </script>
 </html>
