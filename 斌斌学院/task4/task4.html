@@ -3,32 +3,78 @@
 <head>
   <title>task 4</title>
   <style>
+	*{
+	  font-family:"Microsoft YaHei";
+	}
     ul{
       padding:0;
     }
     li{
       list-style:none;
-      height:60px; 
-      width:60px;
+      height:50px; 
+      width:50px;
+	  color:white;
       background-color:red;
-      line-height:60px;
+      line-height:50px;
       text-align:center;
+	  float:left;
+	  margin-right:5px;
     }
   </style>
 </head>
 <body>
   <input id="num" type="text"/>
-  <button>左侧入</button>
-  <button>右侧入</button>
-  <button>左侧出</button>
-  <button>侧出</button>
-  <ul>
-    <li>1</li>
-  </ul>
+  <button id="left_in">左侧入</button>
+  <button id="right_in">右侧入</button>
+  <button id="left_out">左侧出</button>
+  <button id="right_out">右侧出</button>
+  <ul id="main"></ul>
   
   <script type="text/javascript">
-    
-  
+    var num = document.getElementById("num");
+	var main = document.getElementById("main");
+	var left_in = document.getElementById("left_in");
+	var left_out = document.getElementById("left_out");
+	var right_in = document.getElementById("right_in");
+	var right_out = document.getElementById("right_out");
+
+	    //左侧输入
+	    left_in.addEventListener("click",function(){
+		  if(num.value==""){
+            alert("请输入一个数字");
+		  }else if(!isNaN(num.value)){
+		    var li = document.createElement("li");
+	        li.innerText = num.value;
+	        main.insertBefore(li,main.firstChild);
+		  }
+	    })
+		//右侧输入
+	    right_in.addEventListener("click",function(){
+		  if(num.value==""){
+            alert("请输入一个数字");
+		  }else if(!isNaN(num.value)){
+		    var li = document.createElement("li");
+		    li.innerText = num.value;
+	        main.appendChild(li);
+		  }
+		})
+		//左侧输出
+		left_out.addEventListener("click",function(){
+		  alert("你从左侧删除了" + main.firstChild.innerText);
+		  main.removeChild(main.firstChild);
+		})
+		//右侧输出
+		right_out.addEventListener("click",function(){
+		  alert("你从右侧删除了" + main.lastChild.innerText);
+		  main.removeChild(main.lastChild);
+		})
+		//点击删除
+		main.addEventListener("click",function(){
+		  if(event.target.nodeName.toLowerCase()=="li"){
+          main.removeChild(event.target);
+		  }
+		})
+	
   </script>
 </body>
 </html>
