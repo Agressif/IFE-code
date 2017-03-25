@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset"UTF-8">
+	<meta charset="utf-8">
 	<title>正则表达式</title>
 	<style>
 		*{
@@ -60,7 +60,7 @@
 	
 	//校验字符串是否有相邻重复单词
 	function checkStr(){
-		if(str.value == ""){
+		if(str.value === ""){
 			alert("Please enter words!");
 		}else if(str.value.match(/\b([a-zA-Z]+)\s+\1\b/)){
 			alert("True.");
