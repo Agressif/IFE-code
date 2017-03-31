@@ -86,16 +86,21 @@ function insertText(obj,str) {
 
 //查询内容匹配
 function matchElements() {
+
     if(compare.value === ""){
         alert("请输入查询内容！")
-    }else{
+    }else {
         var len = main.children.length;
         var arr = new Array();
-        for(i=0;i<len;i++) {
-            arr[i] = main.children[i].innerText;
+        for (var i = 0; i < len; i++) {
+            arr[i] = main.children[i].innerText.indexOf(compare.value);
+            console.log(arr[i]);
+            if(arr[i] > -1) {
+                main.children[i].style.color = "black";
+            }else if(arr[i] === -1) {
+                main.children[i].style.color = "white";
+            }
         }
-        arr = arr.match(compare.value);
     }
-    console.log(arr);
 }
 search.addEventListener("click", matchElements);
