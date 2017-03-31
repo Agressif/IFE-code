@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
+  <meta charset="UTF-8">
   <title>task 4</title>
   <style>
 	*{
@@ -24,10 +25,10 @@
 </head>
 <body>
   <input id="num" type="text"/>
-  <button id="left_in">×ó²àÈë</button>
-  <button id="right_in">ÓÒ²àÈë</button>
-  <button id="left_out">×ó²à³ö</button>
-  <button id="right_out">ÓÒ²à³ö</button>
+  <button id="left_in">ï¿½ï¿½ï¿½ï¿½ï¿½</button>
+  <button id="right_in">ï¿½Ò²ï¿½ï¿½ï¿½</button>
+  <button id="left_out">ï¿½ï¿½ï¿½ï¿½</button>
+  <button id="right_out">ï¿½Ò²ï¿½ï¿½</button>
   <ul id="main"></ul>
   
 <script type="text/javascript">
@@ -37,37 +38,37 @@
   var left_out = document.getElementById("left_out");
   var right_in = document.getElementById("right_in");
   var right_out = document.getElementById("right_out");
-  //×ó²àÊäÈë
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   left_in.addEventListener("click",function(){
 	if(num.value==""){
-      alert("ÇëÊäÈëÒ»¸öÊı×Ö");
+      alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}else if(!isNaN(num.value)){
 	  var li = document.createElement("li");
 	  li.innerText = num.value;
       main.insertBefore(li,main.firstChild);
 	}
   })
-  //ÓÒ²àÊäÈë
+  //ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½
   right_in.addEventListener("click",function(){
     if(num.value==""){
-      alert("ÇëÊäÈëÒ»¸öÊı×Ö");
+      alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}else if(!isNaN(num.value)){
 	  var li = document.createElement("li");
 	  li.innerText = num.value;
 	  main.appendChild(li);
 	}
   })
-  //×ó²àÊä³ö
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   left_out.addEventListener("click",function(){
-	alert("Äã´Ó×ó²àÉ¾³ıÁË" + main.firstChild.innerText);
+	alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½" + main.firstChild.innerText);
 	main.removeChild(main.firstChild);
   })
-  //ÓÒ²àÊä³ö
+  //ï¿½Ò²ï¿½ï¿½ï¿½ï¿½
   right_out.addEventListener("click",function(){
-	alert("Äã´ÓÓÒ²àÉ¾³ıÁË" + main.lastChild.innerText);
+	alert("ï¿½ï¿½ï¿½ï¿½Ò²ï¿½É¾ï¿½ï¿½ï¿½ï¿½" + main.lastChild.innerText);
 	main.removeChild(main.lastChild);
   })
-  //µã»÷É¾³ı
+  //ï¿½ï¿½ï¿½É¾ï¿½ï¿½
   main.addEventListener("click",function(){
 	if(event.target.nodeName.toLowerCase()=="li"){
     main.removeChild(event.target);

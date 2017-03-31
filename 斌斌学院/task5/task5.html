@@ -37,7 +37,7 @@
   var sortArr = document.getElementById("sort");
   //左侧输入
   left_in.addEventListener("click",function(){
-	if(num.value==""){
+	if(num.value === ""){
       alert("请输入一个数字");
 	}else if(num.value<100 && num.value>10 && main.children.length<=60){
 	  var li = document.createElement("li");
@@ -52,7 +52,7 @@
   });
   //右侧输入
   right_in.addEventListener("click",function(){
-    if(num.value==""){
+    if(num.value === ""){
         alert("请输入一个数字");
 	}else if(num.value<100 && num.value>10 && main.children.length<60){
 	  var li = document.createElement("li");
@@ -77,7 +77,7 @@
   });
   //点击删除
   main.addEventListener("click",function(){
-	if(event.target.nodeName.toLowerCase()=="li"){
+	if(event.target.nodeName.toLowerCase() === "li"){
     main.removeChild(event.target);
 	}
   });
